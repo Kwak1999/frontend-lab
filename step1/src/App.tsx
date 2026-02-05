@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import ButtonPage from "./pages/ButtonPage";
 import StorePage from "./pages/StorePage";
+import FakeStorePage from "./pages/FakeStorePage.tsx";
 
 function Home() {
     return (
@@ -16,6 +17,10 @@ function Home() {
                 <Link to="/store">
                     <button>Store Page</button>
                 </Link>
+
+                <Link to="/fakeStore">
+                    <button>Fake Store Page</button>
+                </Link>
             </div>
         </div>
     );
@@ -27,6 +32,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/button" element={<ButtonPage />} />
             <Route path="/store" element={<StorePage />} />
+            <Route path="/fakeStore" element={<FakeStorePage />} />
         </Routes>
     );
 }

@@ -1,4 +1,4 @@
-import { api } from 'axios.ts'
+import { api } from './axios.ts'
 
 
 // Product 타입 정의

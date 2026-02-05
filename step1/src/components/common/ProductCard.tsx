@@ -18,23 +18,25 @@ const Card = styled.div`
     }
 `;
 
-const ProductImage = styled.div`
+const ProductImage = styled.img`
     width: 100%;
     height: 200px;
-    background: #f8f9fa;
+    object-fit: contain; // 이미지 비율 유지
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 16px;
-    font-size: 48px;
+    background: #f8f9fa;
 `;
 
 const ProductName = styled.div`
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 8px;
     color: #212529;
+    height: 48px; // 제목이 길어도 높이 고정
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // 2줄까지만 표시
+    -webkit-box-orient: vertical;
 `;
 
 const ProductPrice = styled.div`
@@ -49,14 +51,14 @@ interface ProductCardProps {
     id: number;
     name: string;
     price: number;
-    emoji: string; // 이모지로 상품 이미지 대체
+    image: string;  // 이미지 URL
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
     id,
     name,
     price,
-    emoji
+    image
 }) => {
     // Zustand 스토어 사용
     const addItem = useCartStore((state) => state.addItem);
@@ -69,9 +71,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
     return (
         <Card>
-            <ProductImage>{emoji}</ProductImage>
+            <ProductImage src={image} alt={name} />
             <ProductName>{name}</ProductName>
-            <ProductPrice>{price.toLocaleString()}원</ProductPrice>
+            <ProductPrice>${price.toFixed(2)}</ProductPrice>
 
             <Button
                 variant="primary"
