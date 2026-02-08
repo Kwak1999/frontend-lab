@@ -81,7 +81,6 @@ src/
 ### 1. Vite란?
 - 빠른 개발 서버와 빌드 도구
 - Create React App보다 훨씬 빠름
-- 현업에서 표준으로 자리잡는 중
 
 ### 2. TypeScript란?
 - JavaScript에 타입을 추가한 언어
