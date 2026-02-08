@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {ProductList} from "../components/common/ProductList.tsx";
 import {Cart} from "../components/common/Cart.tsx";
+import {AddProductForm} from "../components/common/AddProductForm.tsx";
 
 
 // 전체 레이아웃
@@ -50,6 +51,9 @@ function FakeStorePage() {
                 실제 API에서 상품 데이터를 가져옵니다.
                 (FakeStore API 사용)
             </Subtitle>
+
+            {/*   상품 추가 폼   */}
+            <AddProductForm />
 
             <MainLayout>
             {/*    왼쪽: 상품 목록 (API에서 가져옴)    */}
