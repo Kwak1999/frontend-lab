@@ -75,7 +75,7 @@ export const SearchFilter: React.FC = () => {
 
     const categories = [
         {value: 'all', label: '전체'},
-        {value: 'electranics', label: '전자제품'},
+        {value: 'electronics', label: '전자제품'},
         {value: 'jewelery', label: '쥬얼리'},
         {value: "men's clothing", label: '남성 의류'},
         {value: "women's clothing", label: "여성 의류"},

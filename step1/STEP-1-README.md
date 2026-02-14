@@ -46,7 +46,7 @@ src/
 │   └── layout/       # 레이아웃 컴포넌트 (Header, Footer 등)
 │
 ├── pages/           # 페이지 컴포넌트
-│   ├── Home.tsx
+│   ├── LocalStore.tsx
 │   └── Products.tsx
 │
 ├── hooks/           # 커스텀 훅

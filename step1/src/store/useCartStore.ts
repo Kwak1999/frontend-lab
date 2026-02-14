@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {persist} from "zustand/middleware/persist";
+import { persist } from "zustand/middleware";
 
 // 장바구니 아이템 타입
 interface CartItem{

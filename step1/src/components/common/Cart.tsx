@@ -156,7 +156,7 @@ export const Cart: React.FC = () => {
             <TotalSection>
                 <TotalPrice>
                     <span>총 금액</span>
-                    <span>{getTotalPrice().toLocaleString()}원</span>
+                    <span>{getTotalPrice().toLocaleString()}달러</span>
                 </TotalPrice>
                 <Button
                     variant='primary'

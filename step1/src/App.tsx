@@ -3,6 +3,10 @@ import ButtonPage from "./pages/ButtonPage";
 import StorePage from "./pages/StorePage";
 import FakeStorePage from "./pages/FakeStorePage.tsx";
 
+import {Products} from "./pages/localStore/Products.tsx";
+import {CartPage} from "./pages/localStore/CartPage.tsx";
+import {LocalStore} from "./pages/localStore/LocalStore.tsx";
+
 function Home() {
     return (
         <div style={{ padding: 24 }}>
@@ -21,6 +25,9 @@ function Home() {
                 <Link to="/fakeStore">
                     <button>Fake Store Page</button>
                 </Link>
+                <Link to="/localStore/">
+                    <button>Local Store Page</button>
+                </Link>
             </div>
         </div>
     );
@@ -33,6 +40,9 @@ export default function App() {
             <Route path="/button" element={<ButtonPage />} />
             <Route path="/store" element={<StorePage />} />
             <Route path="/fakeStore" element={<FakeStorePage />} />
+            <Route path="/localStore/" element={<LocalStore />} />
+            <Route path="/localStore/products" element={<Products />} />
+            <Route path="/localStore/cart" element={<CartPage />} />
         </Routes>
     );
 }
