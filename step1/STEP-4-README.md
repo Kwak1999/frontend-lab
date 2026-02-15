@@ -143,9 +143,9 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-      retry: 1,
-      staleTime: 5 * 60 * 1000,  // 5분
+      refetchOnWindowFocus: false,        // 탭 다시 돌아올 때 자동 재요청 여부
+      retry: 1,                           // 실패 시 재시도 횟수
+      staleTime: 5 * 60 * 1000,  // 5분   // fresh 상태 유지 시간
     },
   },
 });
