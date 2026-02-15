@@ -34,10 +34,10 @@ import axios from 'axios';
 
 // Axios 인스턴스 생성
 export const api = axios.create({
-  baseURL: 'https://fakestoreapi.com',
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json'
+  baseURL: 'https://fakestoreapi.com', // 기본 API 주소
+  timeout: 10000,                      // 요청 제한 시간
+  headers: {                           // 공통 헤더
+    'Content-Type': 'application/json' // 보내는 데이터는 JSON 형식이라는 것을 서버에 알려주는 것
   }
 });
 
