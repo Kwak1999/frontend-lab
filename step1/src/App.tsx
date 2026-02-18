@@ -6,6 +6,8 @@ import FakeStorePage from "./pages/FakeStorePage.tsx";
 import {Products} from "./pages/localStore/Products.tsx";
 import {CartPage} from "./pages/localStore/CartPage.tsx";
 import {LocalStore} from "./pages/localStore/LocalStore.tsx";
+import {ProductDetail} from "./pages/localStore/ProductDetail.tsx";
+import {Navbar} from "./components/layout/Navbar.tsx";
 
 function Home() {
     return (
@@ -35,14 +37,19 @@ function Home() {
 
 export default function App() {
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/button" element={<ButtonPage />} />
-            <Route path="/store" element={<StorePage />} />
-            <Route path="/fakeStore" element={<FakeStorePage />} />
-            <Route path="/localStore/" element={<LocalStore />} />
-            <Route path="/localStore/products" element={<Products />} />
-            <Route path="/localStore/cart" element={<CartPage />} />
-        </Routes>
+        <>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/button" element={<ButtonPage />} />
+                <Route path="/store" element={<StorePage />} />
+                <Route path="/fakeStore" element={<FakeStorePage />} />
+                <Route path="/localStore/" element={<LocalStore />} />
+                <Route path="/localStore/products" element={<Products />} />
+                <Route path="/localStore/cart" element={<CartPage />} />
+                <Route path="/localStore/products/:id" element={<ProductDetail />} />
+            </Routes>
+        </>
+
     );
 }

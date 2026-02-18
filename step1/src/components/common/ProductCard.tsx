@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Button} from "./Button";
 import {useCartStore} from "../../store/useCartStore.ts";
+import { Link } from 'react-router-dom';
 
 // 상품 카드 스타일
 const Card = styled.div`
@@ -46,6 +47,12 @@ const ProductPrice = styled.div`
     margin-bottom: 16px;
 `;
 
+const CardLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+
 // Props 타입 정의
 interface ProductCardProps {
     id: number;
@@ -55,33 +62,44 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
-    id,
-    name,
-    price,
-    image
-}) => {
+     id,
+     name,
+     price,
+     image
+     }) => {
     // Zustand 스토어 사용
     const addItem = useCartStore((state) => state.addItem);
 
     // 장바구니 추가 핸들러
     const handleAddToCart = () => {
+        // e.preventDefault();  // Link 클릭 방지
+        // e.stopPropagation(); // 이벤트 전파 방지
+
         addItem({id, name, price, quantity: 1});
         alert(`${name} 을(를) 장바구니에 추가했습니다.`);
     };
 
-    return (
-        <Card>
-            <ProductImage src={image} alt={name} />
-            <ProductName>{name}</ProductName>
-            <ProductPrice>${price.toFixed(2)}</ProductPrice>
+    const handleButtonClick = (e: React.MouseEvent) => {
+        e.preventDefault();  // Link 클릭 방지
+        e.stopPropagation();  // 이벤트 전파 방지
+        handleAddToCart();
+    };
 
-            <Button
-                variant="primary"
-                fullWidth
-                onClick={handleAddToCart}
+    return (
+        <CardLink to={`/localStore/products/${id}`}>
+            <Card>
+                <ProductImage src={image} alt={name} />
+                <ProductName>{name}</ProductName>
+                <ProductPrice>${price.toFixed(2)}</ProductPrice>
+
+                <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={handleButtonClick}
                 >
-                장바구니 담기
-            </Button>
-        </Card>
+                    장바구니 담기
+                </Button>
+            </Card>
+        </CardLink>
     )
 }

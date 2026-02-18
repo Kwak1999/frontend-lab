@@ -22,9 +22,15 @@ interface ButtonProps {
     onClick?: () => void;
 }
 
+// Styled 컴포넌트용 Props (DOM에 전달되지 않는 prop은 $ 접두사 사용)
+interface StyledButtonProps {
+    $variant?: 'primary' | 'secondary' | 'danger';
+    $size?: 'small' | 'medium' | 'large';
+    $fullWidth?: boolean;
+}
+
 // styled.button: button 태그에 스타일 적용
-// <ButtonProps>: TS 타입 지정
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<StyledButtonProps>`
 // 기본 스타일
     display: inline-flex; // flex로 내용물 정렬
     align-items: center; // 세로 가운데 정렬
@@ -37,9 +43,9 @@ const StyledButton = styled.button<ButtonProps>`
     outline: none; // 포커스 테두리 제거
     
     // 크기별 스타일 적용
-    ${({ size }) => {
+    ${({ $size }) => {
         // size prop에 따라 다른 스타일 반환
-        switch (size) {
+        switch ($size) {
             case 'small':
                 return `
                     padding: 4px 16px;
@@ -59,13 +65,13 @@ const StyledButton = styled.button<ButtonProps>`
     }}
     
     // 전체 너비 옵션
-    ${({fullWidth}) => fullWidth && `
+    ${({ $fullWidth }) => $fullWidth && `
         width: 100%;
     `}
     
     // variant별 색상 스타일
-    ${({variant}) => {
-        switch (variant) {
+    ${({ $variant }) => {
+        switch ($variant) {
             case 'secondary':
                 return `
                     background-color: #6c757d;
@@ -127,14 +133,14 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
     return (
         <StyledButton
-            variant={variant}
-            size={size}
-            fullWidth={fullWidth}
+            $variant={variant}
+            $size={size}
+            $fullWidth={fullWidth}
             disabled={disabled}
             onClick={onClick}
         >
             {children}
-            </StyledButton>
+        </StyledButton>
     );
 };
 

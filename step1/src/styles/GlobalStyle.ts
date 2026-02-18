@@ -90,6 +90,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+// 반응형 미디어 쿼리 헬퍼 (선택사항)
+export const breakpoints = {
+    mobile: '768px',
+    tablet: '1024px',
+    desktop: '1280px',
+};
+
 // createGlobalStyle이란?
 // styled-components에서 전역 CSS를 만드는 함수
 // 일반 CSS처럼 작성하지만, JS 파일 안에서 관리 가능
