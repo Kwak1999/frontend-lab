@@ -34,10 +34,10 @@ import axios from 'axios';
 
 // Axios 인스턴스 생성
 export const api = axios.create({
-  baseURL: 'https://fakestoreapi.com',
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json'
+  baseURL: 'https://fakestoreapi.com', // 기본 API 주소
+  timeout: 10000,                      // 요청 제한 시간
+  headers: {                           // 공통 헤더
+    'Content-Type': 'application/json' // 보내는 데이터는 JSON 형식이라는 것을 서버에 알려주는 것
   }
 });
 
@@ -143,9 +143,9 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-      retry: 1,
-      staleTime: 5 * 60 * 1000,  // 5분
+      refetchOnWindowFocus: false,        // 탭 다시 돌아올 때 자동 재요청 여부
+      retry: 1,                           // 실패 시 재시도 횟수
+      staleTime: 5 * 60 * 1000,  // 5분   // fresh 상태 유지 시간
     },
   },
 });
